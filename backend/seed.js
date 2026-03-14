@@ -123,12 +123,12 @@ const sampleUsers = [
 
 async function seedDatabase() {
   try {
-    // Connect to MongoDB
-    await mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log("Connected to MongoDB");
+    // Connect to MongoDB (fall back to local docker Mongo if no env provided)
+    const mongoUrl =
+      process.env.MONGODB_URL || "mongodb://localhost:27017/instadb";
+
+    await mongoose.connect(mongoUrl);
+    console.log(`Connected to MongoDB (${mongoUrl})`);
 
     // Clear existing data (optional)
     // await User.deleteMany({});
