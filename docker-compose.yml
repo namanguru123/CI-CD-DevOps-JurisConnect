@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: instaconnect-backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/instadb
+
+  frontend:
+    build: ./frontend
+    container_name: instaconnect-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo:6
+    container_name: instaconnect-db
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
