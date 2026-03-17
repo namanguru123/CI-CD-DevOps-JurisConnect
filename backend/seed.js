@@ -5,86 +5,88 @@ const Profile = require("./models/Profile");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 
+await Post.deleteMany({});
+
 const samplePosts = [
   {
     title: "Landmark Ruling: New Precedent in Contract Law",
-    postImage: "https://images.unsplash.com/photo-1556155092-490a1ba16284?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=1",
   },
   {
     title: "How to Structure a Legal Memo for Maximum Impact",
-    postImage: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=2",
   },
   {
     title: "Drafting Tips: Effective Witness Statements",
-    postImage: "https://images.unsplash.com/photo-1526378729751-3b19314396d1?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=3",
   },
   {
     title: "Courtroom Strategy: Preparing for Cross-Examination",
-    postImage: "https://images.unsplash.com/photo-1529257414775-5c31b6c3a5c7?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=4",
   },
   {
     title: "Understanding the Latest Compliance Regulations",
-    postImage: "https://images.unsplash.com/photo-1562607682-4f48456204a6?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=5",
   },
   {
     title: "Client Communication: Setting Expectations Upfront",
-    postImage: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=6",
   },
   {
     title: "Building a Strong Case File: Document Checklist",
-    postImage: "https://images.unsplash.com/photo-1555529771-2b65fbae0d62?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=7",
   },
   {
     title: "Ethics Spotlight: Navigating Conflict of Interest",
-    postImage: "https://images.unsplash.com/photo-1498092651950-65d6e1a455d4?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=8",
   },
   {
     title: "Top 5 Negotiation Techniques for Legal Settlements",
-    postImage: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=9",
   },
   {
     title: "Law Tech Roundup: Tools for Research and Case Management",
-    postImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=10",
   },
   {
     title: "Best Practices for Courtroom Presentation Slides",
-    postImage: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=11",
   },
   {
     title: "Legal Writing: Clarity over Complexity",
-    postImage: "https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=12",
   },
   {
     title: "Continuing Education: Upcoming CLE Topics",
-    postImage: "https://images.unsplash.com/photo-1552611053-97f5e6a1d0c4?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=13",
   },
   {
     title: "Pro Bono Spotlight: Supporting Access to Justice",
-    postImage: "https://images.unsplash.com/photo-1508780709619-79562169bc64?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=14",
   },
   {
     title: "Managing Stress During Trial Season",
-    postImage: "https://images.unsplash.com/photo-1542178244-d59f3b11295d?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=15",
   },
   {
     title: "A Practical Checklist for Due Diligence",
-    postImage: "https://images.unsplash.com/photo-1591696367585-910c78f593de?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=16",
   },
   {
     title: "Courtroom Tech: Using Evidence Presentation Software",
-    postImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=17",
   },
   {
     title: "Effective Brief Writing Under Deadlines",
-    postImage: "https://images.unsplash.com/photo-1529484870605-b1f75d41d699?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=18",
   },
   {
     title: "Recent Legislative Updates: What You Need to Know",
-    postImage: "https://images.unsplash.com/photo-1526378729751-3b19314396d1?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=19",
   },
   {
     title: "Creating a Professional Portfolio as a Junior Lawyer",
-    postImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&h=600&fit=crop",
+    postImage: "https://picsum.photos/600?random=20",
   },
 ];
 

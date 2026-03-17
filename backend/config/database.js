@@ -6,7 +6,9 @@ exports.connectDb=()=>{
 
     console.log("Connecting to MongoDB:", mongoUri);
 
-    mongoose.connect(mongoUri)
+    mongoose.connect(mongoUri, {
+        family: 4, // Use IPv4
+    })
     .then(()=>{
         console.log("DB Connected Successfully");
     })

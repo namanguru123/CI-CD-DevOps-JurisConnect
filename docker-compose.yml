@@ -2,18 +2,22 @@ services:
 
   backend:
     build: ./backend
-    container_name: instaconnect-backend
+    container_name: JurisConnect-backend
     ports:
       - "4000:4000"
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
     depends_on:
       - mongo
     environment:
       - PORT=4000
       - MONGODB_URL=mongodb://mongo:27017/instadb
+      - JWT_SECRET=mySuperSecretJWTKey123
 
   frontend:
     build: ./frontend
-    container_name: instaconnect-frontend
+    container_name: JurisConnect-frontend
     ports:
       - "3000:80"
     depends_on:
@@ -21,7 +25,7 @@ services:
 
   mongo:
     image: mongo:6
-    container_name: instaconnect-db
+    container_name: JurisConnect-db
     ports:
       - "27017:27017"
     volumes:

@@ -31,9 +31,12 @@ const Feed = () => {
         const postResponse = await getAllPost(token);
         if (postResponse && postResponse.data && postResponse.data.data) {
           setPosts(postResponse.data.data?.reverse());
+        
         } else {
           setPosts([]);
         }
+
+        console.log("Posts fetched:", postResponse.data.data);
 
         const userData = await getUser(token);
         if (userData && userData.data && userData.data.data) {
