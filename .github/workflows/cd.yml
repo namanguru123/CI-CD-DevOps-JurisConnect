@@ -20,6 +20,10 @@ jobs:
             docker pull naman15092005/jurisconnect-frontend:latest
             docker pull naman15092005/jurisconnect-backend:latest
 
+            docker stop frontend || true
+            docker stop backend || true
+
+
             docker rm -f frontend || true
             docker rm -f backend || true
 
